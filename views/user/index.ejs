@@ -1,0 +1,121 @@
+<section class="w-full flex justify-between items-center">
+  <h1 class="pb-4 text-3xl font-bold">Users</h1>
+<button class="btn btn-sm btn-neutral" id="init-add-user-btn">Add user</button>
+</section>
+<% if (success.length) { %>
+ <%- include("../partials/successAlert") %>
+<% } %>
+<% if (errors.length) { %>
+ <%- include("../partials/errorAlert") %>
+<% } %>
+<!-- User Table -->
+<div class="card min-w-full h-fit bg-base-100 shadow-sm mt-3 ">
+  <div class="card-body">
+    <div class="overflow-x-auto">
+      <table class="table">
+        <!-- head -->
+        <thead>
+          <tr>
+            <th></th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% users.forEach((user, number) => { %>
+             <tr>
+            <th><%= number + 1 %></th>
+            <td><%= user.username %></td>
+            <td><%= user.email %></td>
+            <td><%= user.role %></td>
+            <td>
+              <div class="action-wrapper flex">
+                <button class="btn btn-square btn-ghost edit-btn" data-id="<%= user._id %>" data-username="<%= user.username %>" data-email="<%= user.email %>" data-role="<%= user.role %>">
+                  <svg
+                    xmlns="http://www.w3.org/20 00/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125"
+                    />
+                  </svg>
+                </button>
+                  <button class="btn btn-square btn-ghost delete-btn" data-id="<%= user._id %>">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </td>
+          </tr>
+            <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Form create/edit user modal -->
+<dialog id="my_modal_3" class="modal">  
+  <div class="modal-box">
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+    <h3 class="text-lg font-bold" id="modal-title">Create User</h3>
+   <form id="user-form" action="/user" method="post">
+     <fieldset class="fieldset">
+  <legend class="fieldset-legend">Username</legend>
+  <input id="username-input" name="username" type="text" class="input w-full" placeholder="Username" />
+</fieldset>
+<fieldset class="fieldset">
+  <legend class="fieldset-legend">Email</legend>
+  <input id="email-input" name="email" type="email" class="input w-full" placeholder="Email" />
+</fieldset>
+<fieldset class="fieldset">
+  <legend class="fieldset-legend">Role</legend>
+  <input id="role-input" name="role" type="text" class="input w-full" placeholder="Role" />
+</fieldset>
+<fieldset class="fieldset">
+  <legend class="fieldset-legend">Password</legend>
+  <input id="password-input" name="password" type="password" class="input w-full" placeholder="Password" />
+  <button id="add-user-btn" class="btn btn-neutral btn-sm mt-2">Add</button>
+</fieldset>
+   </form>
+</div>
+</dialog>
+
+<!-- Delete confirmation modal -->
+<dialog id="my_modal_1" class="modal">
+  <div class="modal-box">
+    <!-- <h3 class="text-lg font-bold">Hello!</h3> -->
+    <p class="py-4">Are you sure, you want delete this user?</p>
+    <div class="modal-action">
+      <form id="delete-form" method="POST">
+        <!-- if there is a button in form, it will close the modal -->
+        <button type="submit" id="confirm-btn" class="btn bg-error">For sure</button>
+        <button type="button" id="cancel-btn" class="btn" onclick="my_modal_1.close()">Keep it</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+<script type="module" src="/javascripts/main.js"></script>

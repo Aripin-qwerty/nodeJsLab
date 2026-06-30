@@ -1,0 +1,16 @@
+{
+  "name": "package-b",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo from package b"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module", 
+  "dependencies": {
+    "package-a":"*"
+  }
+}

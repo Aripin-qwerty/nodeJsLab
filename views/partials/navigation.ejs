@@ -1,0 +1,15 @@
+<div class="drawer lg:drawer-open min-h-screen">
+      <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
+      <div class="drawer-content flex flex-col min-h-screen">
+        <!-- Navbar -->
+        <%- include("navbar") %>
+        <!-- Page content here -->
+        <main class="flex-1 flex p-5">
+          <div class="body-wrapper w-full">
+            <%- body %>
+          </div>
+        </main>
+      </div>
+
+      <%- include("drawer") %>
+    </div>

@@ -1,0 +1,46 @@
+{
+  "name": "nodejslab",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node ./bin/www",
+    "start:watch": "nodemon ./bin/www",
+    "build:css": "npx @tailwindcss/cli -i ./public/stylesheets/input.css -o public/stylesheets/output.css --watch",
+    "cy:open" : "cypress open"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.2.0",
+    "axios": "^1.13.6",
+    "axios-retry": "^4.5.0",
+    "bcryptjs": "^3.0.3",
+    "connect-flash": "^0.1.1",
+    "connect-redis": "^9.0.0",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.6",
+    "daisyui": "^5.5.19",
+    "debug": "~2.6.9",
+    "dotenv": "^17.3.1",
+    "ejs": "^4.0.1",
+    "express": "~4.16.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.19.0",
+    "express-validator": "^7.3.1",
+    "flowbite": "^4.0.1",
+    "http-errors": "~1.6.3",
+    "jsonwebtoken": "^9.0.3",
+    "leaflet": "^1.4.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^9.2.1",
+    "morgan": "~1.9.1",
+    "ngeohash": "^0.6.3",
+    "nodemailer": "^8.0.1",
+    "opossum": "^9.0.0",
+    "redis": "^5.11.0",
+    "tailwindcss": "^4.2.0",
+    "vite": "^8.0.3"
+  },
+  "devDependencies": {
+    "cypress": "^15.13.1"
+  }
+}

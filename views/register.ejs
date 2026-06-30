@@ -1,0 +1,27 @@
+<section class="flex justify-center items-center h-screen">
+  <form action="/auth/register" method="post">
+    <fieldset
+    class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4"
+  >
+    <% if (error.length) { %>
+      <%- include("partials/errorAlert") %>
+    <% } %>
+
+    <% if (success.length) { %>
+      <%- include("partials/successAlert") %>
+    <% } %>
+    <legend class="fieldset-legend">Register</legend>
+
+    <label class="label">Username</label>
+    <input name="username" type="text" class="input" placeholder="Username" required/>
+
+    <label class="label">Email</label>
+    <input name="email" type="text" class="input" placeholder="Email" required/>
+
+    <label class="label">Password</label>
+    <input name ="password" type="password" class="input" placeholder="Password" required/>
+
+    <button type="submit" class="btn btn-neutral mt-4">Register</button>
+  </fieldset>
+  </form>
+</section>

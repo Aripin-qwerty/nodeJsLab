@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongodb/mongodb-community-server:7.0.28-ubuntu2204
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=dev
+      - MONGO_INITDB_ROOT_PASSWORD=dev123
+    volumes:
+      - mongo_data:/data/db
+
+  redis:
+    image: redis:latest  # 'alpine' is a smaller, more efficient image
+    container_name: redis-dev
+    ports:
+      - "6379:6379"
+
+volumes:
+  mongo_data:
+    external: true  # This tells Compose to use the volume you already created nativelyv

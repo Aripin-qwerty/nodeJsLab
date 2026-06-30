@@ -1,0 +1,30 @@
+<nav class="navbar w-full bg-base-300">
+      <label for="my-drawer-4" aria-label="open sidebar" class="btn btn-square btn-ghost">
+        <!-- Sidebar toggle icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor" class="my-1.5 inline-block size-4"><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path><path d="M9 4v16"></path><path d="M14 10l2 2l-2 2"></path></svg>
+      </label>
+      <div class="px-4">NodeJS Lab</div>
+      <div class="dropdown dropdown-end ml-auto">
+    <div id="profile-button" tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+        <div class="bg-neutral text-neutral-content rounded-full w-10">
+          <span class="text-2xl absolute right-2.5 top-0.5">D</span>
+        </div>
+    </div>
+    <ul
+      tabindex="-1"
+      class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+    >
+      <div class="p-2 w-full h-10 mb-1">
+        <div class="flex">
+          <div class="avatar avatar-placeholder">
+            <div class="bg-neutral text-neutral-content w-8 rounded-full">
+              <span class="text-lg font-medium">D</span>
+            </div>
+          </div>
+          <p class="ml-5 mt-1 text-base text-base-content">Admin</p>
+        </div>
+      </div>
+      <li id="list-profile"><a href="/auth/logout">Logout</a></li>
+    </ul>
+  </div>
+    </nav>

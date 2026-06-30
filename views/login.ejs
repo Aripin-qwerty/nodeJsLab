@@ -1,0 +1,26 @@
+<section class="flex justify-center items-center h-screen">
+  <form action="/auth/login" method="post">
+    <fieldset
+    class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4"
+  >
+    <% if (error.length) { %>
+       <div role="alert" class="alert alert-error">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+  <span><%= error[0] %></span>
+</div>
+    <% } %>
+    <legend class="fieldset-legend">Login</legend>
+
+    <label class="label">Username</label>
+    <input name="username" type="text" class="input" placeholder="Username" autocomplete="off" required/>
+
+    <label class="label">Password</label>
+    <input name ="password" type="password" class="input" placeholder="Password" required/>
+
+    <button type="submit" class="btn btn-neutral mt-4">Login</button>
+    <p>Haven't account yet? <a href="/auth/register" class="text-info">register here</a></p>
+  </fieldset>
+  </form>
+</section>
