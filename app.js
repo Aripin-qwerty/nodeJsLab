@@ -31,7 +31,7 @@ app.set("layout", "layouts/auth");
 
 const redisConn = () => {
   return createClient({
-    url: "redis://localhost:6379",
+    url: "redis://redis:6379",
   });
 };
 export const redisClient = redisConn();
